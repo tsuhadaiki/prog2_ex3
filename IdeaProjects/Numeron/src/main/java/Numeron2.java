@@ -1,10 +1,15 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 public class Numeron2 {
+    public static void main(String args[]){
+        Numeron2 Nume = new Numeron2();
+        Nume.Numeron2();
+    }
 
     /*これは二人用に直す。具体的には入力部の追加と判定とか*/
-    public static void main(String[] args) {
+    public static void Numeron2() {
         //変数の初期化。
         /*必要な変数
          * タイトル、ルール文、答えの格納される配列、
@@ -22,7 +27,7 @@ public class Numeron2 {
         int[] answer2 = new int[3];// 答えが入る
         int[] input2 = new int[3];// 入力した答えが入る
         int countturn1 = 0, countturn2 = 0;
-        int eat = 0, bit = 0;
+        int eat = 0, bit = 0, exit =0;
         //タイトルとルールの表示
         BufferedReader br
                 = new BufferedReader(new InputStreamReader(System.in));
@@ -74,7 +79,7 @@ public class Numeron2 {
                 }
             }
         }
-        while(true){
+        while(exit == 0){
             if (countturn1 == countturn2) {
                 while (countturn1 == countturn2) {
                     countturn1++;
@@ -108,6 +113,7 @@ public class Numeron2 {
                     System.out.println("イート" + eat + "バイト" + bit);
                     if (eat == 3) {
                         System.out.println("終了");
+                        exit++;
                         break;
                     } else if(eat < 3){
                         System.out.println();
@@ -146,6 +152,7 @@ public class Numeron2 {
                     System.out.println("イート" + eat + "バイト" + bit);
                     if (eat == 3) {
                         System.out.println("終了");
+                        exit++;
                         break;
                     } else if(eat < 3){
                         System.out.println();
