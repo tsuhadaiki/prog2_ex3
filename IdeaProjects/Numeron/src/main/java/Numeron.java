@@ -5,7 +5,7 @@ public class Numeron {
     public static void Numeron() {
         int[] answer = new int[3];// 答えが入る
         int[] input = new int[3];// 入力した答えが入る
-        int hit = 0, blow = 0, count = 0;
+        int eat = 0, count = 0;
         BufferedReader br
                 = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 0; i < answer.length; i++) {
@@ -21,7 +21,7 @@ public class Numeron {
                 }
             } while (flag == true);
         }
-        while (true) {
+        while (eat < 3) {
             count++;
             System.out.println("*** " + count + "回目 ***");
             for (int i = 0; i < answer.length; i++) {
@@ -36,31 +36,27 @@ public class Numeron {
                     i--;
                 }
             }
-            judg(answer,input);
-            if (hit == 3){
-                break;
-            }
+            eat = judg(answer,input);
         }
     }
     public static int judg(int[] answer, int[] input) {
-        int hit = 0;
-        int blow = 0;
+        int eat = 0;
+        int bit = 0;
         for (int i = 0; i < answer.length; i++) {
             for (int j = 0; j < answer.length; j++) {
                 if (i == j && input[i] == answer[j]) {
-                    hit++;
+                    eat++;
                 } else if (input[i] == answer[j]) {
-                    blow++;
+                    bit++;
                 }
             }
         }
-        System.out.println("ヒット" + hit + " ブロー" + blow);
-        if (hit == 3) {
+        System.out.println("イート" + eat + " バイト" + bit);
+        if (eat == 3) {
             System.out.println("おめでとー");
-            return hit;
         } else {
             System.out.println();
         }
-        return hit;
+        return eat;
     }
 }
