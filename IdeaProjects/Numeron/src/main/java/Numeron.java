@@ -10,13 +10,13 @@ public class Numeron {
                 = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 0; i < answer.length; i++) {
             boolean flag = false;
-            answer[i] = (int) (Math.random() * 9 + 1);
+            answer[i] = (int) (Math.random() * 10);
             do {
                 flag = false;
                 for (int j = i - 1; j >= 0; j--) {
                     if (answer[i] == answer[j]) {
                         flag = true;
-                        answer[i] = (int) (Math.random() * 9 + 1);
+                        answer[i] = (int) (Math.random() * 10);
                     }
                 }
             } while (flag == true);
@@ -51,7 +51,7 @@ public class Numeron {
                 }
             }
         }
-        System.out.println("イート" + eat + " バイト" + bit);
+        System.out.println(eat +"イート" + bit + "バイト" );
         if (eat == 3) {
             System.out.println("おめでとー");
         } else {
