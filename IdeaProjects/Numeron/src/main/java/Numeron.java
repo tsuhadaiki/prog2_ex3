@@ -34,7 +34,14 @@ public class Numeron {
                 } catch (IOException e) {
                     System.err.println("もう一度入力してください");
                     i--;
+                } finally {
+                for (int j = i - 1; j >= 0; j--) {
+                    if (answer[i] == answer[j]) {
+                        System.err.println("同じ数字を入力しないでください");
+                        i--;
+                    }
                 }
+            }
             }
             eat = judg(answer,input);
         }
