@@ -12,9 +12,9 @@ public class Numeron2 {
         int countturn1 = 0, countturn2 = 0;//一人目と二人目の解答回数をカウントするための変数
         int exit =0;//ループ処理から抜ける時に用いる変数
         System.out.println("一人目の３桁の数字を１個ずつ入力してください");
-        judgnumber1(answer1);
+        settingnumber1(answer1);
         System.out.println("二人目の３桁の数字を１個ずつ入力してください");
-        judgnumber2(answer2);
+        settingnumber2(answer2);
         //下部のwhile文では最初に二人目が回答するようにし、次に一人目が回答するようになっている。
         while(exit == 0) {
             if (countturn1 == countturn2) {
@@ -38,9 +38,11 @@ public class Numeron2 {
         System.out.println("    " + countturn2 + "回目");
         for (int i = 0; i < answer2.length; i++) {
             System.out.print((i + 1) + "個目 : ");
+            int dig = 0;
             try {
                 //ここで全角英数字でも入力できるように対応
                 input2[i] = Integer.parseInt(br.readLine());
+                dig = input2[i];
             } catch (NumberFormatException e) {
                 System.err.println("数値を入力してください");
                 i--;
@@ -48,7 +50,7 @@ public class Numeron2 {
                 System.err.println("もう一度入力してください");
                 i--;
             } finally {
-                if(input2[i] > 10){
+                if(dig >= 10){
                     System.err.println("数字は0~9の範囲で入力してください");
                     i--;
                 }
@@ -89,9 +91,11 @@ public class Numeron2 {
         System.out.println("    " + countturn1 + "回目");
         for (int i = 0; i < answer1.length; i++) {
             System.out.print((i + 1) + "個目 : ");
+            int dig = 0;
             try {
                 //ここで全角英数字でも入力できるように対応
                 input1[i] = Integer.parseInt(br.readLine());
+                dig = input1[i];
             } catch (NumberFormatException e) {
                 System.err.println("数値を入力してください");
                 i--;
@@ -99,7 +103,7 @@ public class Numeron2 {
                 System.err.println("もう一度入力してください");
                 i--;
             } finally {
-                if(input1[i] > 10){
+                if(dig >= 10){
                     System.err.println("数字は0~9の範囲で入力してください");
                     i--;
                 }
@@ -130,16 +134,18 @@ public class Numeron2 {
         return exit;
     }
 
-    public static void judgnumber1(int[] answer1){
+    public static void settingnumber1(int[] answer1){
         /*judgnumber1メソッドでは一人目の設定した答えを配列のanswer1に入れるための機能を実装した。try,catch構文で数字以外、
         同じ数字、2桁の数字、readLineで何らかの入出力エラーが起きた場合に対処できるようにしてある。*/
         BufferedReader br
                 = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 0; i < answer1.length; i++) {
             System.out.print((i + 1) + "個目 : ");
+            int dig = 0;
             try {
                 //ここで全角英数字でも入力できるように対応
                 answer1[i] = Integer.parseInt(br.readLine());
+                dig = answer1[i];
             } catch (NumberFormatException e) {
                 System.err.println("数値を入力してください");
                 i--;
@@ -147,7 +153,7 @@ public class Numeron2 {
                 System.err.println("もう一度入力してください");
                 i--;
             } finally {
-                if(answer1[i] > 10) {
+                if(dig >= 10) {
                     System.err.println("数字は0~9の範囲で入力してください");
                     i--;
                 }
@@ -163,16 +169,18 @@ public class Numeron2 {
         System.out.println("\n\n\n\n\n\n\n\n\n\n");
     }
 
-    public static void judgnumber2(int[] answer2){
+    public static void settingnumber2(int[] answer2){
         /*judgnumber2メソッドでも二人目の設定した答えを配列のanswer2に入れるための機能を実装した。try,catch構文で数字以外、
         同じ数字、2桁の数字、readLineで何らかの入出力エラーが起きた場合に対処できるようにしてある。*/
         BufferedReader br
                 = new BufferedReader(new InputStreamReader(System.in));
         for (int i = 0; i < answer2.length; i++) {
             System.out.print((i + 1) + "個目 : ");
+            int dig = 0;
             try {
                 //ここで全角英数字でも入力できるように対応
                 answer2[i] = Integer.parseInt(br.readLine());
+                dig = answer2[i];
             } catch (NumberFormatException e) {
                 System.err.println("数値を入力してください");
                 i--;
@@ -180,7 +188,7 @@ public class Numeron2 {
                 System.err.println("もう一度入力してください");
                 i--;
             } finally {
-                if(answer2[i] > 10) {
+                if(dig >= 10) {
                     System.err.println("数字は0~9の範囲で入力してください");
                     i--;
                 }
